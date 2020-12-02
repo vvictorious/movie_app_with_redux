@@ -1,13 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { getMovies } from '../../../actions/movieActions'
+import { getSearchValue, getMovies } from '../../../actions/movieActions'
 
-const SearchForm = ({ getMovies }) => {
+const SearchForm = ({ getSearchValue }) => {
 
 
     const getMovieValue = async e => {
         console.log(e.target.value)
-        getMovies(e.target.value)
+        getSearchValue(e.target.value)
     }
 
     return (
@@ -17,5 +17,4 @@ const SearchForm = ({ getMovies }) => {
     )
 }
 
-
-export default connect(null, { getMovies })(SearchForm)
+export default connect(null, { getSearchValue, getMovies })(SearchForm)

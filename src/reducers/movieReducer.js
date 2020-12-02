@@ -1,11 +1,18 @@
-import { GET_MOVIES, SET_LOADING } from '../actions/types'
+import { GET_SEARCH_VALUE, GET_MOVIES, SET_LOADING } from '../actions/types'
 
 const initialState = {
-    searchValue: null
+    movies: null,
+    searchValue: '',
+    loading: false
 }
 
-const searchReducer = (state = initialState, action) => {
+const moviesReducer = (state = initialState, action) => {
     switch (action.type) {
+        case GET_SEARCH_VALUE:
+            return {
+                ...state,
+                searchValue: action.payload
+            }
         case GET_MOVIES:
             return {
                 ...state,
@@ -22,4 +29,4 @@ const searchReducer = (state = initialState, action) => {
     }
 }
 
-export default searchReducer
+export default moviesReducer

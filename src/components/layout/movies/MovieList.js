@@ -1,11 +1,23 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useEffect } from 'react'
+import { connect } from 'react-redux'
+import { getMovies } from '../../../actions/movieActions';
 
-const MovieList = () => {
+const MovieList = ({ movies: {movies, searchValue, loading}, getMovies}) => {
+
+    useEffect( () => {
+        getMovies(searchValue)
+        console.log(movies)
+    }, [searchValue])
+
     return (
         <Fragment>
-            
+            <h1>hi</h1>
         </Fragment>
     )
 }
 
-export default MovieList
+const mapStateToProps = state => ({
+    movies: state.movies
+})
+
+export default connect(mapStateToProps, { getMovies }) (MovieList)
