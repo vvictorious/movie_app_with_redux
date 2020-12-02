@@ -4,11 +4,11 @@ import axios from 'axios'
 // gets movie from the db
 export const getMovies = movie => async dispatch => {
     try {
-        const res = await axios.get(`http://www.omdbapi.com/?s=star wars&apikey=${process.env.REACT_APP_MOVIE_API_KEY}`)
-        console.log(res)
+        const res = await axios.get(`http://www.omdbapi.com/?s=${movie}&apikey=${process.env.REACT_APP_MOVIE_API_KEY}`)
+        console.log(res.data.Search)
         dispatch({
             type: GET_MOVIES,
-            payload: res.data
+            payload: res.data.Search
         })        
     } catch (error) {
         console.log(error)

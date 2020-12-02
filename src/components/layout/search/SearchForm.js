@@ -1,22 +1,23 @@
-import React, { useState } from 'react'
-import axios from 'axios'
+import React from 'react'
+import { connect } from 'react-redux'
+import { getMovies } from '../../../actions/searchActions'
 
-const SearchForm = () => {
+const SearchForm = ({ getMovies }) => {
 
-    const [value, setValue] = useState('')
 
     const getMovieValue = async e => {
-        setValue(e.target.value)
-        console.log(value)
-        const res = await axios.get(`http://www.omdbapi.com/?s=${e.target.value}&apikey=${process.env.REACT_APP_MOVIE_API_KEY}`)
-        console.log(res.data.Search)
+        console.log(e.target.value)
+        getMovies(e.target.value)
+        // const res = await axios.get(`http://www.omdbapi.com/?s=${e.target.value}&apikey=${process.env.REACT_APP_MOVIE_API_KEY}`)
+        // console.log(res.data.Search)
     }
 
     return (
         <form>
-            <input type='text' value={value} onChange={getMovieValue} />   
+            <input type='text' onChange={getMovieValue} />   
         </form>
     )
 }
 
-export default SearchForm
+
+export default connect(null, { getMovies })(SearchForm)
