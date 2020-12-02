@@ -2,22 +2,30 @@ import React, { Fragment, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { getMovies } from '../../../actions/movieActions';
 
-const MovieList = ({ movies: {movies, searchValue, loading}, getMovies}) => {
+const MovieList = ({ moviesData: {movies, searchValue, loading}, getMovies}) => {
 
     useEffect( () => {
-        getMovies(searchValue)
-        console.log(movies)
+        if (searchValue.length > 3) {
+            getMovies(searchValue)
+        }
     }, [searchValue])
 
-    return (
-        <Fragment>
-            <h1>hi</h1>
+    console.log(movies)
+
+    if (movies === null) {
+        return <h4>Time to start searching</h4>
+    } else {
+        return <Fragment>
+            {movies.map(movie => (
+                <p>{movie.Title}</p>
+            ))}
         </Fragment>
-    )
+    }
+
 }
 
 const mapStateToProps = state => ({
-    movies: state.movies
+    moviesData: state.movieReducer
 })
 
 export default connect(mapStateToProps, { getMovies }) (MovieList)
