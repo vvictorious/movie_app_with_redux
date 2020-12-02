@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { getMovies } from '../../../actions/searchActions'
+import { getMovies } from '../../../actions/movieActions'
 
 const SearchForm = ({ getMovies }) => {
 

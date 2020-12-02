@@ -1,8 +1,7 @@
 import { GET_MOVIES, SET_LOADING } from '../actions/types'
 
 const initialState = {
-    movies: null,
-    loading: false
+    searchValue: null
 }
 
 const searchReducer = (state = initialState, action) => {
