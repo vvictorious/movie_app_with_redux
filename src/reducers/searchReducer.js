@@ -10,8 +10,14 @@ const searchReducer = (state = initialState, action) => {
         case GET_MOVIES:
             return {
                 ...state,
-                movies: action.payload
+                movies: action.payload,
+                loading: false
             }
+        case SET_LOADING:
+                return {
+                    ...state,
+                    loading: true
+                }
         default: 
             return state
     }
