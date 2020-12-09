@@ -1,7 +1,7 @@
 import { GET_SEARCH_VALUE, GET_MOVIES, SET_LOADING } from '../actions/types'
 
 const initialState = {
-    movies: null,
+    movies: [],
     searchValue: '',
     loading: false
 }

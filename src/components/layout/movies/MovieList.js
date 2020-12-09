@@ -5,14 +5,14 @@ import { getMovies } from '../../../actions/movieActions';
 const MovieList = ({ moviesData: {movies, searchValue, loading}, getMovies}) => {
 
     useEffect( () => {
-        if (searchValue.length > 3) {
+        if (movies !== undefined && searchValue.length > 3) {
             getMovies(searchValue)
         }
     }, [searchValue])
 
     console.log(movies)
 
-    if (movies === null) {
+    if (movies.length === 0 || !movies) {
         return <h4>Time to start searching</h4>
     } else {
         return <Fragment>
