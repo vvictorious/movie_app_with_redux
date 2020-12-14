@@ -11,7 +11,7 @@ const SearchForm = ({ getSearchValue }) => {
     }
 
     return (
-        <form>
+        <form className='center'>
             <input type='text' onChange={getMovieValue} />   
         </form>
     )

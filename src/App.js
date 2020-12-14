@@ -1,4 +1,5 @@
 import React from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { Provider } from 'react-redux'
 import store from './store'
@@ -9,12 +10,10 @@ import MovieList from './components/layout/movies/MovieList'
 const App = () => {
   return (
     <Provider store={store}>
-      <div className="App">
-        <h1>The start of the app</h1>
-        <SearchForm />
-        <MovieList />
-      </div>
-      </Provider>
+      <h1 className='center'>Movie Searcher 5000</h1>
+      <SearchForm />
+      <MovieList />
+    </Provider>
   );
 }
 
