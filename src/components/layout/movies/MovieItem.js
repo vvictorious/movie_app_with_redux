@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 
 const MovieItem = ({movie}) => {
     return (
-        <div>
+        <Fragment>
             <img src={movie.Poster} alt='movie' />
-            <h1>{movie.Title}</h1>
-        </div>
+            <div className='overlay d-flex align-items-center justify-content-center'>
+				Add to Favourites
+            </div>            
+        </Fragment>
     )
 }
 

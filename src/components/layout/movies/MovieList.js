@@ -22,9 +22,11 @@ const MovieList = ({ moviesData: {movies, searchValue, loading}, getMovies}) => 
             <div className='container-fluid movie-app'>
                 <div className='row'>
                     {movies.map(movie => (
-                        <MovieItem movie={movie} />
+				        <div className='image-container d-flex justify-content-start m-3'>                        
+                            <MovieItem movie={movie} key={movie.imdbID} />
+                        </div>
                     ))}
-                </div>>
+                </div>
             </div>
         )
     }
