@@ -5,15 +5,17 @@ import { getMovies } from '../../../actions/movieActions';
 const MovieList = ({ moviesData: {movies, searchValue, loading}, getMovies}) => {
 
     useEffect( () => {
-        if (movies !== undefined && searchValue.length > 3) {
+        if (searchValue.length > 2) {
             getMovies(searchValue)
         }
     }, [searchValue])
 
     console.log(movies)
 
-    if (movies.length === 0 || !movies) {
-        return <h4>Time to start searching</h4>
+    if ( searchValue.length > 0 && searchValue.length <= 2) {
+        return <h4>Too many Results</h4>
+    } else if (movies.length === 0 || !movies || searchValue.length === 0 ) {
+        return <h4>Start your movie search!</h4>
     } else {
         return <Fragment>
             {movies.map(movie => (
