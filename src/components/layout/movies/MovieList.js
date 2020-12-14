@@ -1,6 +1,7 @@
 import React, { Fragment, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { getMovies } from '../../../actions/movieActions';
+import MovieItem from './MovieItem'
 
 const MovieList = ({ moviesData: {movies, searchValue, loading}, getMovies}) => {
 
@@ -19,7 +20,7 @@ const MovieList = ({ moviesData: {movies, searchValue, loading}, getMovies}) => 
     } else {
         return <Fragment>
             {movies.map(movie => (
-                <p>{movie.Title}</p>
+                <MovieItem movie={movie} />
             ))}
         </Fragment>
     }
