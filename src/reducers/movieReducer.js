@@ -1,7 +1,13 @@
-import { GET_SEARCH_VALUE, GET_MOVIES, SET_LOADING } from '../actions/types'
+import { 
+    GET_SEARCH_VALUE, 
+    GET_MOVIES, 
+    SET_LOADING,
+    ADD_TO_FAVOURITES
+} from '../actions/types'
 
 const initialState = {
     movies: [],
+    favourites: [],
     searchValue: '',
     loading: false
 }
@@ -18,6 +24,11 @@ const moviesReducer = (state = initialState, action) => {
                 ...state,
                 movies: action.payload,
                 loading: false
+            }
+        case ADD_TO_FAVOURITES:
+            return {
+                ...state,
+                favourites: [action.payload, ...state.favourites]
             }
         case SET_LOADING:
                 return {

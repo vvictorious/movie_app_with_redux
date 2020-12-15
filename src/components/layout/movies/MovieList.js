@@ -2,7 +2,6 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { getMovies } from '../../../actions/movieActions';
 import MovieItem from './MovieItem'
-import AddFavourites from '../favorites/AddFavourite'
 
 const MovieList = ({ moviesData: {movies, searchValue, loading}, getMovies}) => {
 
@@ -24,7 +23,7 @@ const MovieList = ({ moviesData: {movies, searchValue, loading}, getMovies}) => 
                 <div className='row'>
                     {movies.map(movie => (
 				        <div className='image-container d-flex justify-content-start m-3'>                        
-                            <MovieItem movie={movie} FavouriteComponent={AddFavourites} key={movie.imdbID} />
+                            <MovieItem movie={movie} key={movie.imdbID} />
                         </div>
                     ))}
                 </div>

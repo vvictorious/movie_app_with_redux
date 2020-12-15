@@ -1,4 +1,9 @@
-import { GET_MOVIES, SET_LOADING, GET_SEARCH_VALUE } from './types'
+import { 
+    GET_MOVIES, 
+    SET_LOADING, 
+    GET_SEARCH_VALUE,
+    ADD_TO_FAVOURITES
+} from './types'
 import axios from 'axios'
 
 //get value from search movie form
@@ -24,6 +29,14 @@ export const getMovies = movie => async dispatch => {
     } catch (error) {
         console.error(error)
     }
+}
+
+export const addToFavourites = movie => dispatch => {
+    console.log(movie)
+    dispatch({
+        type: ADD_TO_FAVOURITES,
+        payload: movie
+    })
 }
 
 export const setLoading = () => {
