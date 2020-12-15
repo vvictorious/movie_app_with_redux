@@ -14,14 +14,14 @@ const MovieList = ({ moviesData: {movies, searchValue, loading}, getMovies}) => 
     if ( searchValue.length > 0 && searchValue.length <= 2) {
         return (
             <Fragment>
-                <h4 className='text-center m-2'>Too many Results</h4>
+                <h4 className='text-center m-3'>Too many Results</h4>
                 <h3 className='m-3'>Movie List</h3>
             </Fragment>
         )
     } else if (movies.length === 0 || !movies || searchValue.length === 0 ) {
         return (
             <Fragment>
-                <h4 className='text-center m-2'>Start your movie search!</h4>
+                <h4 className='text-center m-3'>Start your movie search!</h4>
                 <h3 className='m-3'>Movie List</h3>
             </Fragment>
         )

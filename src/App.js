@@ -6,6 +6,7 @@ import store from './store'
 
 import SearchForm from './components/layout/search/SearchForm'
 import MovieList from './components/layout/movies/MovieList'
+import FavouritesList from './components/layout/favorites/FavouritesList'
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <h1 className='center'>Movie Searcher 5000</h1>
       <SearchForm />
       <MovieList />
+      <FavouritesList />
     </Provider>
   );
 }
