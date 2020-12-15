@@ -2,7 +2,8 @@ import {
     GET_MOVIES, 
     SET_LOADING, 
     GET_SEARCH_VALUE,
-    ADD_TO_FAVOURITES
+    ADD_TO_FAVOURITES,
+    REMOVE_FAVOURITE
 } from './types'
 import axios from 'axios'
 
@@ -36,6 +37,13 @@ export const addToFavourites = movie => dispatch => {
     dispatch({
         type: ADD_TO_FAVOURITES,
         payload: movie
+    })
+}
+
+export const removeFavourite = id => dispatch => {
+    dispatch({
+        type: REMOVE_FAVOURITE,
+        payload: id
     })
 }
 
