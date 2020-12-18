@@ -3,14 +3,16 @@ import {
     GET_MOVIES, 
     SET_LOADING,
     ADD_TO_FAVOURITES,
-    REMOVE_FAVOURITE
+    REMOVE_FAVOURITE,
+    ALREADY_IN_FAVOURITES
 } from '../actions/types'
 
 const initialState = {
     movies: [],
     favourites: [],
     searchValue: '',
-    loading: false
+    loading: false,
+    duplicateFave: ''
 }
 
 const moviesReducer = (state = initialState, action) => {
@@ -35,6 +37,11 @@ const moviesReducer = (state = initialState, action) => {
             return {
                 ...state,
                 favourites: state.favourites.filter(favourite => favourite.imdbID !== action.payload)
+            }
+        case ALREADY_IN_FAVOURITES:
+            return {
+                ...state,
+                duplicateFave: action.payload
             }
         case SET_LOADING:
                 return {

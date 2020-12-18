@@ -3,7 +3,8 @@ import {
     SET_LOADING, 
     GET_SEARCH_VALUE,
     ADD_TO_FAVOURITES,
-    REMOVE_FAVOURITE
+    REMOVE_FAVOURITE,
+    ALREADY_IN_FAVOURITES
 } from './types'
 import axios from 'axios'
 
@@ -44,6 +45,13 @@ export const removeFavourite = id => dispatch => {
     dispatch({
         type: REMOVE_FAVOURITE,
         payload: id
+    })
+}
+
+export const alreadyInFavourites = movieTitle => dispatch => {
+    dispatch({
+        type: ALREADY_IN_FAVOURITES,
+        payload: movieTitle
     })
 }
 
