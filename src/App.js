@@ -12,7 +12,7 @@ import Alert from './components/layout/alert/Alert'
 const App = () => {
   return (
     <Provider store={store}>
-      <h1 className='center'>Movie Searcher 5000</h1>
+      <h1 className='center m-4'>Movie Searcher 5000</h1>
       <SearchForm />
       <Alert />
       <MovieList />

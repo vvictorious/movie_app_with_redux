@@ -9,6 +9,10 @@ import {
 } from './types'
 import axios from 'axios'
 
+const saveToLocalStorage = items => {
+    localStorage.setItem('react-movie-app-favourites', JSON.stringify(items));
+}
+
 //get value from search movie form
 export const getSearchValue = value => dispatch => {
     dispatch({
@@ -35,11 +39,10 @@ export const getMovies = movie => async dispatch => {
 }
 
 export const addToFavourites = movie => dispatch => {
-    console.log(movie)
     dispatch({
         type: ADD_TO_FAVOURITES,
         payload: movie
-    })
+    })    
 }
 
 export const removeFavourite = id => dispatch => {

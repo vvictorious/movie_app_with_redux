@@ -2,8 +2,7 @@ import React, { useEffect, Fragment } from 'react'
 import { connect } from 'react-redux'
 import FavouritesItem from './FavouritesItem'
 
-const FavouritesList = ({ moviesData: {favourites, searchValue, loading}, getMovies}) => {
-
+const FavouritesList = ({ moviesData: {favourites}}) => {
     
     return (
         <Fragment>

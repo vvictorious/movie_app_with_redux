@@ -11,6 +11,7 @@ const MovieList = ({ moviesData: {movies, searchValue, loading}, getMovies}) => 
         }
     }, [searchValue])
 
+
     if ( searchValue.length > 0 && searchValue.length <= 2) {
         return (
             <Fragment>

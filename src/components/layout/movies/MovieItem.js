@@ -5,6 +5,10 @@ import AddFavourites from '../favorites/AddFavourite'
 
 const MovieItem = ({ moviesData: {favourites}, movie, addToFavourites, alreadyInFavourites}) => {
 
+    const saveToLocalStorage = items => {
+		localStorage.setItem('react-movie-app-favourites', JSON.stringify(items));
+    }
+
     const favouriteCheck = movie => {
         if (favourites.length > 0) {
             const sameIdArray = favourites.filter(fave => fave.imdbID === movie.imdbID)
@@ -13,6 +17,7 @@ const MovieItem = ({ moviesData: {favourites}, movie, addToFavourites, alreadyIn
                 console.log('movie is not in the favourties')
                 console.log(sameIdArray)
                 addToFavourites(movie)
+                saveToLocalStorage([...favourites, movie])
             } else {
                 console.log(sameIdArray[0].Title)
                 // we are going to fire a function that takes sameIdArray[0].Title as the payload
@@ -21,6 +26,7 @@ const MovieItem = ({ moviesData: {favourites}, movie, addToFavourites, alreadyIn
             }
         } else {
             addToFavourites(movie)
+            saveToLocalStorage([...favourites, movie])
             console.log('the second part of the parent conditional is true')
         }
     }
