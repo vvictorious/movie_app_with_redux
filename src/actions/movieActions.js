@@ -4,7 +4,8 @@ import {
     GET_SEARCH_VALUE,
     ADD_TO_FAVOURITES,
     REMOVE_FAVOURITE,
-    ALREADY_IN_FAVOURITES
+    ALREADY_IN_FAVOURITES,
+    SET_DUPLICATE_TO_NULL
 } from './types'
 import axios from 'axios'
 
@@ -53,6 +54,11 @@ export const alreadyInFavourites = movieTitle => dispatch => {
         type: ALREADY_IN_FAVOURITES,
         payload: movieTitle
     })
+    setTimeout( () => {
+        dispatch({
+            type: SET_DUPLICATE_TO_NULL,
+        })
+    },3000)
 }
 
 export const setLoading = () => {

@@ -4,7 +4,8 @@ import {
     SET_LOADING,
     ADD_TO_FAVOURITES,
     REMOVE_FAVOURITE,
-    ALREADY_IN_FAVOURITES
+    ALREADY_IN_FAVOURITES,
+    SET_DUPLICATE_TO_NULL
 } from '../actions/types'
 
 const initialState = {
@@ -12,7 +13,7 @@ const initialState = {
     favourites: [],
     searchValue: '',
     loading: false,
-    duplicateFave: ''
+    duplicateFave: null
 }
 
 const moviesReducer = (state = initialState, action) => {
@@ -42,6 +43,11 @@ const moviesReducer = (state = initialState, action) => {
             return {
                 ...state,
                 duplicateFave: action.payload
+            }
+        case SET_DUPLICATE_TO_NULL:
+            return {
+                ...state,
+                duplicateFave: null
             }
         case SET_LOADING:
                 return {
