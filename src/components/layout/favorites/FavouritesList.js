@@ -7,7 +7,7 @@ const FavouritesList = ({ moviesData: {favourites, searchValue, loading}, getMov
     
     return (
         <Fragment>
-            <h3 className={favourites.length > 0 ? 'm-3': 'hidden'}>FavouritesList</h3>
+            <h3 className={favourites.length > 0 ? 'm-3': 'hidden'}>Favourites List</h3>
             <div className='container-fluid movie-app'>
                 <div className='row'>
                     {favourites.map(movie => (

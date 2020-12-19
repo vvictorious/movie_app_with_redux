@@ -2,7 +2,6 @@ import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
 import { addToFavourites, alreadyInFavourites } from '../../../actions/movieActions'
 import AddFavourites from '../favorites/AddFavourite'
-import { ConsoleWriter } from 'istanbul-lib-report';
 
 const MovieItem = ({ moviesData: {favourites}, movie, addToFavourites, alreadyInFavourites}) => {
 
