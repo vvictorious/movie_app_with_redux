@@ -27,7 +27,14 @@ const MovieItem = ({ moviesData: {favourites}, movie, addToFavourites, alreadyIn
 
     return (
         <Fragment>
-            <img src={movie.Poster} alt='movie' />
+            {movie.Poster !== 'N/A' ? 
+                <img src={movie.Poster} alt='movie' /> :
+                <h5 className='blank-movie text-center p-3'>{movie.Title}
+                    <span className='no-poster'>
+                        No poster for this film
+                    </span>
+                </h5>
+            }
             <div onClick={ () => favouriteCheck(movie)} className='overlay d-flex align-items-center justify-content-center'>
 				<AddFavourites  />
             </div>            
