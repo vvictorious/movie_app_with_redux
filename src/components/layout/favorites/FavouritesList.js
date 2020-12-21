@@ -1,8 +1,19 @@
 import React, { useEffect, Fragment } from 'react'
 import { connect } from 'react-redux'
+import { setFavourites } from '../../../actions/movieActions'
 import FavouritesItem from './FavouritesItem'
 
-const FavouritesList = ({ moviesData: {favourites}}) => {
+const FavouritesList = ({ moviesData: {favourites}, setFavourites}) => {
+
+    useEffect( () => {
+
+		const movieFavourites = JSON.parse(
+			localStorage.getItem('react-movie-app-favourites')
+		)
+		setFavourites(movieFavourites)
+        
+
+    }, [])
     
     return (
         <Fragment>
@@ -26,4 +37,4 @@ const mapStateToProps = state => ({
     moviesData: state.movieReducer
 })
 
-export default connect(mapStateToProps) (FavouritesList)
+export default connect(mapStateToProps, {setFavourites}) (FavouritesList)

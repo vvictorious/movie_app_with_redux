@@ -12,22 +12,15 @@ const MovieItem = ({ moviesData: {favourites}, movie, addToFavourites, alreadyIn
     const favouriteCheck = movie => {
         if (favourites.length > 0) {
             const sameIdArray = favourites.filter(fave => fave.imdbID === movie.imdbID)
-            console.log(sameIdArray)
             if (sameIdArray.length === 0) {
-                console.log('movie is not in the favourties')
-                console.log(sameIdArray)
                 addToFavourites(movie)
                 saveToLocalStorage([...favourites, movie])
             } else {
-                console.log(sameIdArray[0].Title)
-                // we are going to fire a function that takes sameIdArray[0].Title as the payload
                 alreadyInFavourites(sameIdArray[0].Title)
-                console.log('we are within the nested else and movie is in favouritees')
             }
         } else {
             addToFavourites(movie)
             saveToLocalStorage([...favourites, movie])
-            console.log('the second part of the parent conditional is true')
         }
     }
 

@@ -5,7 +5,8 @@ import {
     ADD_TO_FAVOURITES,
     REMOVE_FAVOURITE,
     ALREADY_IN_FAVOURITES,
-    SET_DUPLICATE_TO_NULL
+    SET_DUPLICATE_TO_NULL,
+    SET_FAVOURITES
 } from '../actions/types'
 
 const initialState = {
@@ -33,6 +34,11 @@ const moviesReducer = (state = initialState, action) => {
             return {
                 ...state,
                 favourites: [...state.favourites, action.payload]
+            }
+        case SET_FAVOURITES:
+            return {
+                ...state,
+                favourites: action.payload
             }
         case REMOVE_FAVOURITE:
             return {

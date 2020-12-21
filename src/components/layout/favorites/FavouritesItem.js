@@ -6,10 +6,6 @@ import RemoveFavourite from './RemoveFavourite'
 
 const FavouritesItem = ({movie, removeFavourite, moviesData: {favourites}}) => {
 
-	const saveToLocalStorage = items => {
-		localStorage.removeItem('react-movie-app-favourites', JSON.stringify(items));
-    }  
-
     const handleRemove = currentMovie => {
         removeFavourite(currentMovie.imdbID)
         let items =JSON.parse(localStorage.getItem("react-movie-app-favourites"));

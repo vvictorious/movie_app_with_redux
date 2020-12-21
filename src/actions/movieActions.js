@@ -5,13 +5,10 @@ import {
     ADD_TO_FAVOURITES,
     REMOVE_FAVOURITE,
     ALREADY_IN_FAVOURITES,
-    SET_DUPLICATE_TO_NULL
+    SET_DUPLICATE_TO_NULL,
+    SET_FAVOURITES
 } from './types'
 import axios from 'axios'
-
-const saveToLocalStorage = items => {
-    localStorage.setItem('react-movie-app-favourites', JSON.stringify(items));
-}
 
 //get value from search movie form
 export const getSearchValue = value => dispatch => {
@@ -36,6 +33,13 @@ export const getMovies = movie => async dispatch => {
     } catch (error) {
         console.error(error)
     }
+}
+
+export const setFavourites = favouritesArray => dispatch => {
+    dispatch({
+        type: SET_FAVOURITES,
+        payload: favouritesArray
+    })
 }
 
 export const addToFavourites = movie => dispatch => {
