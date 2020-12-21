@@ -6,7 +6,6 @@ const SearchForm = ({ getSearchValue }) => {
 
 
     const getMovieValue = async e => {
-        console.log(e.target.value)
         getSearchValue(e.target.value)
     }
 

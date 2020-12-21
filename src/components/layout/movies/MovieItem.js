@@ -52,6 +52,3 @@ const mapStateToProps = state => ({
     moviesData: state.movieReducer
 })
 export default connect(mapStateToProps, {addToFavourites, alreadyInFavourites})(MovieItem)
-
-// I have been thinking about this all wrong. I should bring in the favourites array and the movies array
-// write a function up above that will be called on the on Click instead
