@@ -9,12 +9,13 @@ const FavouritesList = ({ moviesData: {favourites}, setFavourites}) => {
 
 		const movieFavourites = JSON.parse(
 			localStorage.getItem('react-movie-app-favourites')
-		)
-		setFavourites(movieFavourites)
-        
+        )
+        if (movieFavourites !== null) {
+            setFavourites(movieFavourites)
+
+        }        
 
     }, [])
-    
     return (
         <Fragment>
             <h3 className={favourites.length > 0 ? 'm-3': 'hidden'}>Favourites List</h3>
