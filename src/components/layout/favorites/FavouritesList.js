@@ -12,7 +12,6 @@ const FavouritesList = ({ moviesData: {favourites}, setFavourites}) => {
         )
         if (movieFavourites !== null) {
             setFavourites(movieFavourites)
-
         }        
 
     }, [])
