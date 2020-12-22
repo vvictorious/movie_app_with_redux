@@ -22,8 +22,7 @@ export const getSearchValue = value => dispatch => {
 export const getMovies = movie => async dispatch => {
     try {
         let movieAppApi;
-        
-        console.log(process.env.NODE_ENV)
+
         if (process.env.NODE_ENV !== 'production') {
             movieAppApi = process.env.REACT_APP_MOVIE_API_KEY
         } else {
