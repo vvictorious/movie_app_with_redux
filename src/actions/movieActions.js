@@ -18,7 +18,7 @@ export const getSearchValue = value => dispatch => {
     })
 }
 
-// gets movie from the API endpoint
+// gets movie from the API endpoint t
 export const getMovies = movie => async dispatch => {
     try {
         let movieAppApi;
