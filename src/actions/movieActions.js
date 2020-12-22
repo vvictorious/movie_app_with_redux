@@ -21,8 +21,15 @@ export const getSearchValue = value => dispatch => {
 // gets movie from the API endpoint
 export const getMovies = movie => async dispatch => {
     try {
+        let movieAppApi;
+        
+        if (process.env.NODE_ENV !== 'production') {
+            movieAppApi = process.env.REACT_APP_MOVIE_API_KEY
+        } else {
+            movieAppApi = process.env.MOVIE_API_KEY
+        }        
         setLoading()
-        const res = await axios.get(`http://www.omdbapi.com/?s=${movie}&apikey=${process.env.REACT_APP_MOVIE_API_KEY}`)
+        const res = await axios.get(`http://www.omdbapi.com/?s=${movie}&apikey=${movieAppApi}`)
         if (res.data.Response !== 'False') {
             console.log(res.data)
             dispatch({
