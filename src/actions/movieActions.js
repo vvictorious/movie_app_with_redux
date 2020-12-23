@@ -22,7 +22,7 @@ export const getSearchValue = value => dispatch => {
 export const getMovies = movie => async dispatch => {
     try {
         setLoading()
-        const res = await axios.get(`http://www.omdbapi.com/?s=${movie}&apikey=${process.env.REACT_APP_MOVIE_API_KEY}`)
+        const res = await axios.get(`https://www.omdbapi.com/?s=${movie}&apikey=${process.env.REACT_APP_MOVIE_API_KEY}`)
         if (res.data.Response !== 'False') {
             dispatch({
                 type: GET_MOVIES,
